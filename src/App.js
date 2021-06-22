@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function Appl() {
   return (
     <div className="App">
       <header className="App-header">
@@ -9,6 +9,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <h2> hello, world! </h2>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -22,4 +23,4 @@ function App() {
   );
 }
 
-export default App;
+export default Appl;
