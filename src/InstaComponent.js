@@ -4,6 +4,8 @@ import './App.css';
 import PostComponent from './PostComponent'
 import CommentComponent from './CommentComponent'
 import PhotoComponent from './PhotoComponent'
+import FeedComponent from './FeedComponent'
+import loginPage from './loginPage'
 
 export default class InstaComponent extends Component {
 
@@ -12,55 +14,28 @@ export default class InstaComponent extends Component {
     this.state = {
       loggedIn: false,
     }
+    this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
+  }
+
+  handleLoginSubmit(submitEvent) {
+    console.log('login button pressed')
+    submitEvent.preventDefault();
+    this.setState({loggedIn: true})
   }
 
   render(){
+
     if (this.state.loggedIn == false) {
+      return loginPage(this.handleLoginSubmit)
 
-      console.log('NOT logged in')
-
-      return (
-        <div className="App">
-
-          <header className="App-header">
-            <div id='boilerplate'>
-              <img src={logo} className="App-logo" alt="logo" />
-              <p> Edit <code>src/InstaComponent.js</code> and save to reload. </p>
-              <a className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Learn React
-              </a>
-            </div>
-          </header>
-
-          <div className="signup">
-            <h3> this should be visible BEFORE signup OR login</h3>
-            <form>
-              <input type='text' id='first_name' placeholder='first name'></input> <br />
-              <input type='text' id='email' placeholder='email address'></input> <br />
-              <input type='text' id='password' placeholder='password'></input> <br />
-              <input type='submit' value='sign up!'></input>
-            </form>
-          </div>
-
-          <div className="login">
-            <h3> this should be visible BEFORE login</h3>
-            <form>
-            <input type='text' id='email' placeholder='email address'></input> <br />
-            <input type='text' id='password' placeholder='password'></input> <br />
-            <input type='submit' value='log in!'></input>
-            </form>
-          </div>
-
-        </div>
-      )
     } else {
 
-      console.log(' YES logged in')
-
+      console.log('logged in')
+      let post = <PostComponent
+      caption="I'm a caption [prop]"
+      photo=<PhotoComponent source='default.png' />
+      comments=<CommentComponent content="I'm a comment component for this ^^^ "/>
+      />
       return (
 
         <div className="App">
@@ -79,18 +54,15 @@ export default class InstaComponent extends Component {
             </div>
           </header>
 
-          <div className="feed">
           <h3> this should be visible AFTER login </h3>
-            <PostComponent
-            caption="I'm a caption [prop]"
-            photo=<PhotoComponent source='default.png' />
-            comments=<CommentComponent content="I'm a comment component. I belong to this photo! ^ "/>
-            />
-          </div>
+
+          <FeedComponent
+          allPosts={[post, post]}
+          />
+
 
         </div>
       )
     }
-
   }
 }
