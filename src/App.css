@@ -8,7 +8,7 @@
 }
 
 .App-header {
-  background-color: #324ac6;
+  background-color: #03045e;
   min-height: 25vh;
   display: flex;
   flex-direction: column;
@@ -24,17 +24,17 @@
 
 .signup{
   min-height: 5vh;
-  background-color: #899cf7;
+  background-color: #0077b6;
 }
 
 .login{
   min-height: 5vh;
-  background-color: #677ff6;
+  background-color: #00b4d8;
 }
 
 .feed{
   min-height: 5vh;
-  background-color: #67c3f6;
+  background-color: #90e0ef;
 }
 
 .comment{

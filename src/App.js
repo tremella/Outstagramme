@@ -24,7 +24,7 @@ function App() {
       </header>
 
       <div className="signup">
-        <p> this should be visible BEFORE signup OR login</p>
+        <h3> this should be visible BEFORE signup OR login</h3>
         <form>
           <input type='text' id='first_name' placeholder='first name'></input> <br />
           <input type='text' id='email' placeholder='email address'></input> <br />
@@ -34,7 +34,7 @@ function App() {
       </div>
 
       <div className="login">
-        <p> this should be visible BEFORE login</p>
+        <h3> this should be visible BEFORE login</h3>
         <form>
         <input type='text' id='email' placeholder='email address'></input> <br />
         <input type='text' id='password' placeholder='password'></input> <br />
@@ -45,7 +45,7 @@ function App() {
 
 
       <div className="feed">
-      <p> this should be visible AFTER login </p>
+      <h3> this should be visible AFTER login </h3>
         <PostComponent
         caption="I'm a caption [prop]"
         photo=<PhotoComponent source='default.png' />
