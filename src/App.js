@@ -24,7 +24,7 @@ function App() {
 
       <PostComponent
       caption="I'm a caption [prop]"
-      photo=<PhotoComponent />
+      photo=<PhotoComponent source='default.png' />
       comments=<CommentComponent content="I'm a comment component. I belong to this photo! ^ "/>
       />
 

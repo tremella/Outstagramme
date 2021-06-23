@@ -8,7 +8,7 @@ export default class PhotoComponent extends Component {
 
   render() {
     return (
-      <img src="default.png" className="insta-photo" alt="beach"/>
+      <img src={this.props.source} className="insta-photo" alt="photo"/>
     )
   }
 }
