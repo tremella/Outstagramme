@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 10vmin;
+  height: 8vmin;
   pointer-events: none;
 }
 
@@ -14,20 +14,26 @@
 }
 
 .App-header {
-  background-color: #062938;
-  min-height: 40vh;
+  background-color: #324ac6;
+  min-height: 25vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 1vmin);
   color: white;
 }
 
-
-
 .App-link {
-  color: #54c0f6;
+  color: #9adafa;
+}
+
+.comment{
+  color: rgb(5, 181, 113);
+}
+
+.insta-photo{
+  max-height: 25vh;
 }
 
 @keyframes App-logo-spin {

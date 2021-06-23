@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import PostComponent from './PostComponent'
+import CommentComponent from './CommentComponent'
 
-function Appl() {
+function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -22,16 +23,14 @@ function Appl() {
 
       <PostComponent
       caption="I'm a caption [prop]"
-      photo=<img src="default.png" className="insta-photo" alt="beach"/>
+      photo=<img src="default.png" className="insta-photo" alt="beach"
+      />
       />
 
-      <PostComponent
-      caption="I'm ALSO a caption [prop]"
-      photo=<img src="default.png" className="insta-photo" alt="beach"/>
-      />
-
+      <CommentComponent
+      content="I'm a comment component - I belong to nothing"/>
     </div>
   );
 }
 
-export default Appl;
+export default App;
