@@ -3,19 +3,22 @@ import React, {Component} from 'react';
 export default class PostComponent extends Component {
 
 // props will hold all the params passed as input to this component
+// instead of @name, this.props.name.
+
   constructor(props) {
     super(props)
   }
 
   render(){
-    const element = (<div> [element variable] </div>)
-    return (<div className="comptext">
-      <p> rendering the POST component: </p>
-      {this.props.caption}
-      {element}
-      {this.props.photo}
-      <button> {element} in a button</button>
+    var element = (<div> [element variable] </div>)
 
-    </div>)
+    return (
+      <div className="post">
+      <p> rendered the Post component: </p>
+        <div className="post-photo">{this.props.photo}</div>
+        <div classname="post-caption">{this.props.caption}</div>
+        {element}
+      </div>
+    )
   }
 }
