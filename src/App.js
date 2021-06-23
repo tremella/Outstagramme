@@ -23,9 +23,26 @@ function App() {
         </div>
       </header>
 
+      <div className="signup">
+        <p> this should be visible BEFORE signup OR login</p>
+        <form>
+          <input type='text' id='first_name' placeholder='first name'></input> <br />
+          <input type='text' id='email' placeholder='email address'></input> <br />
+          <input type='text' id='password' placeholder='password'></input> <br />
+          <input type='submit' value='sign up!'></input>
+        </form>
+      </div>
+
       <div className="login">
         <p> this should be visible BEFORE login</p>
+        <form>
+        <input type='text' id='email' placeholder='email address'></input> <br />
+        <input type='text' id='password' placeholder='password'></input> <br />
+        <input type='submit' value='log in!'></input>
+        </form>
       </div>
+
+
 
       <div className="feed">
       <p> this should be visible AFTER login </p>

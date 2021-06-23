@@ -22,6 +22,11 @@
   color: #9adafa;
 }
 
+.signup{
+  min-height: 5vh;
+  background-color: #899cf7;
+}
+
 .login{
   min-height: 5vh;
   background-color: #677ff6;
