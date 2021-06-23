@@ -22,6 +22,16 @@
   color: #9adafa;
 }
 
+.login{
+  min-height: 5vh;
+  background-color: #677ff6;
+}
+
+.feed{
+  min-height: 5vh;
+  background-color: #67c3f6;
+}
+
 .comment{
   color: #324ac6;
 }

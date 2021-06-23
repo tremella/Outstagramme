@@ -8,6 +8,7 @@ import PhotoComponent from './PhotoComponent'
 function App() {
   return (
     <div className="App">
+
       <header className="App-header">
         <div id='boilerplate'>
           <img src={logo} className="App-logo" alt="logo" />
@@ -22,11 +23,19 @@ function App() {
         </div>
       </header>
 
-      <PostComponent
-      caption="I'm a caption [prop]"
-      photo=<PhotoComponent source='default.png' />
-      comments=<CommentComponent content="I'm a comment component. I belong to this photo! ^ "/>
-      />
+      <div className="login">
+        <p> this should be visible BEFORE login</p>
+      </div>
+
+      <div className="feed">
+      <p> this should be visible AFTER login </p>
+        <PostComponent
+        caption="I'm a caption [prop]"
+        photo=<PhotoComponent source='default.png' />
+        comments=<CommentComponent content="I'm a comment component. I belong to this photo! ^ "/>
+        />
+      </div>
+
 
     </div>
   );
