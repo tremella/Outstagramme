@@ -20,8 +20,16 @@ function Appl() {
         </div>
       </header>
 
-      <PostComponent displaytext="I'm the displaytext value"/>
-      
+      <PostComponent
+      caption="I'm a caption [prop]"
+      photo=<img src="default.png" className="insta-photo" alt="beach"/>
+      />
+
+      <PostComponent
+      caption="I'm ALSO a caption [prop]"
+      photo=<img src="default.png" className="insta-photo" alt="beach"/>
+      />
+
     </div>
   );
 }

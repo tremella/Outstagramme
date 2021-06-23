@@ -8,15 +8,14 @@ export default class PostComponent extends Component {
   }
 
   render(){
-    const element = (<div> I'm the element variable </div>)
+    const element = (<div> [element variable] </div>)
     return (<div className="comptext">
-      <p>  rendering the POST component here </p>
-      {this.props.displaytext}
+      <p> rendering the POST component: </p>
+      {this.props.caption}
       {element}
-      <br />
-      <button> {element} wrapped in a button</button>
-      <br />
-      <img src="default.png" className="insta-photo" alt="beach"/>
+      {this.props.photo}
+      <button> {element} in a button</button>
+
     </div>)
   }
 }
