@@ -15,12 +15,18 @@ export default class InstaComponent extends Component {
       loggedIn: false,
     }
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
+    this.handleLogoutClick = this.handleLogoutClick.bind(this)
   }
 
   handleLoginSubmit(submitEvent) {
     console.log('login button pressed')
     submitEvent.preventDefault();
     this.setState({loggedIn: true})
+  }
+
+  handleLogoutClick(clickEvent) {
+    console.log('logout button pressed')
+    this.setState({loggedIn: false})
   }
 
   render(){
@@ -30,11 +36,10 @@ export default class InstaComponent extends Component {
 
     } else {
 
-      console.log('logged in')
       let post = <PostComponent
-      caption="I'm a caption [prop]"
+      caption="I'm a caption"
       photo=<PhotoComponent source='default.png' />
-      comments=<CommentComponent content="I'm a comment component for this ^^^ "/>
+      comments=<CommentComponent content="I'm a comment component"/>
       />
       return (
 
@@ -51,6 +56,8 @@ export default class InstaComponent extends Component {
               >
                 Learn React
               </a>
+              <br />
+              <button onClick={this.handleLogoutClick}>logout</button>
             </div>
           </header>
 
@@ -60,6 +67,14 @@ export default class InstaComponent extends Component {
           allPosts={[post, post]}
           />
 
+          <footer className="App-footer">
+              <a className="App-link"
+                href="https://github.com/tremella"
+                target="_blank"
+                rel="noopener noreferrer">
+                visit github.com/tremella
+              </a>
+          </footer>
 
         </div>
       )
