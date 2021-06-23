@@ -1,24 +1,27 @@
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import PostComponent from './PostComponent'
 
 function Appl() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <h2> hello, world! </h2>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div id='boilerplate'>
+          <img src={logo} className="App-logo" alt="logo" />
+          <p> Edit <code>src/App.js</code> and save to reload. </p>
+          <a className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </div>
       </header>
+
+      <PostComponent displaytext="I'm the displaytext value"/>
+      
     </div>
   );
 }
