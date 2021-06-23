@@ -25,6 +25,8 @@ function App() {
       caption="I'm a caption [prop]"
       photo=<img src="default.png" className="insta-photo" alt="beach"
       />
+      comments=<CommentComponent
+      content="I'm a comment component. I belong to this stunning photo! ^ "/>
       />
 
       <CommentComponent

@@ -7,14 +7,12 @@ export default class PostComponent extends Component {
   }
 
   render() {
-    var element = (<div> [element variable] </div>)
-
     return (
       <div className="post">
       <p> rendered the Post component: </p>
         <div className="post-photo">{this.props.photo}</div>
-        <div classname="post-caption">{this.props.caption}</div>
-        {element}
+        <div className="post-caption">{this.props.caption}</div>
+        <div className="post-comments">{this.props.comments}</div>
       </div>
     )
   }
