@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import PostComponent from './PostComponent'
 import CommentComponent from './CommentComponent'
+import PhotoComponent from './PhotoComponent'
 
 function App() {
   return (
@@ -23,14 +24,10 @@ function App() {
 
       <PostComponent
       caption="I'm a caption [prop]"
-      photo=<img src="default.png" className="insta-photo" alt="beach"
-      />
-      comments=<CommentComponent
-      content="I'm a comment component. I belong to this stunning photo! ^ "/>
+      photo=<PhotoComponent />
+      comments=<CommentComponent content="I'm a comment component. I belong to this photo! ^ "/>
       />
 
-      <CommentComponent
-      content="I'm a comment component - I belong to nothing"/>
     </div>
   );
 }
