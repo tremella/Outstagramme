@@ -31,7 +31,7 @@ export default class InstaComponent extends Component {
 
   render(){
 
-    if (this.state.loggedIn == false) {
+    if (this.state.loggedIn === false) {
       return loginPage(this.handleLoginSubmit)
 
     } else {
@@ -69,10 +69,10 @@ export default class InstaComponent extends Component {
 
           <footer className="App-footer">
               <a className="App-link"
-                href="https://github.com/tremella"
+                href="https://github.com/tremella/insta-react"
                 target="_blank"
                 rel="noopener noreferrer">
-                visit github.com/tremella
+                visit github.com/tremella/insta-react
               </a>
           </footer>
 
