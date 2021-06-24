@@ -68,8 +68,8 @@
 
 /*--------- POSTS ------*/
 .insta-photo{
-  max-height: 570px;
-  max-width: 570px;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .post{
