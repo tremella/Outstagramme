@@ -12,7 +12,7 @@ export default class InstaComponent extends Component {
   constructor(props){
     super(props);
     this.state = {
-      loggedIn: false,
+      loggedIn: true,
     }
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
     this.handleLogoutClick = this.handleLogoutClick.bind(this)
