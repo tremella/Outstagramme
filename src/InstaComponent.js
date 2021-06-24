@@ -47,16 +47,6 @@ export default class InstaComponent extends Component {
 
           <header className="App-header">
             <div id='boilerplate'>
-              <img src={logo} className="App-logo" alt="logo" />
-              <p> Edit <code>src/InstaComponent.js</code> and save to reload. </p>
-              <a className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Learn React
-              </a>
-              <br />
               <button onClick={this.handleLogoutClick}>logout</button>
             </div>
           </header>
