@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import PostComponent from './PostComponent'
 import CommentComponent from './CommentComponent'
@@ -46,7 +46,9 @@ export default class InstaComponent extends Component {
         <div className="App">
 
           <header className="App-header">
-            <div id='boilerplate'>
+            <div id='header-bar-left-buffer'></div>
+            <div id='header-bar'>
+              <img src='./outstagramme.png' className="App-logo" alt="logo" />
               <button onClick={this.handleLogoutClick}>logout</button>
             </div>
           </header>

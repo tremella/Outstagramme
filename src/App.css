@@ -1,19 +1,35 @@
 .App {
   text-align: center;
+}
 
+.App-logo {
+  height: 8vmin;
+  pointer-events: none;
 }
 
 .App-header {
   background-color: white;
   border-top: 1px solid rgb(211, 211, 211);
   border-bottom: 1px solid rgb(211, 211, 211);
-  min-height: 8vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  min-height: 10vh;
+  /* display: flex; */
+  /* flex-direction: column; */
+  align-items: left;
   font-size: calc(10px + 1vmin);
   color: black;
+  text-align: left;
+
+
+  display: grid;
+  grid-template-columns: minmax(150px, 25%) 1fr;
+}
+
+.header-bar{
+
+}
+
+.header-bar-left-buffer{
+
 }
 
 .App-footer {
@@ -131,19 +147,19 @@
 }
 
 
-/* -------------------------------------------- */
+/* --------------spinny logo------------------------------ */
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
+  /* .App-logo {
     animation: App-logo-spin infinite 15s linear;
-  }
+  } */
 }
 
 @keyframes App-logo-spin {
-  from {
+  /* from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
-  }
+  } */
 }
