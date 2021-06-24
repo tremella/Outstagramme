@@ -39,7 +39,7 @@ export default class InstaComponent extends Component {
       let post = <PostComponent
       caption="I'm a caption"
       photo=<PhotoComponent source='default.png' />
-      comments=<CommentComponent content="I'm a comment component"/>
+      comments=<CommentComponent content="I'm a comment"/>
       />
       return (
 
@@ -60,8 +60,6 @@ export default class InstaComponent extends Component {
               <button onClick={this.handleLogoutClick}>logout</button>
             </div>
           </header>
-
-          <h3> this should be visible AFTER login </h3>
 
           <FeedComponent
           allPosts={[post, post]}

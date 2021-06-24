@@ -4,7 +4,7 @@ export default class CommentComponent extends Component {
 
   render() {
     return (
-      <p className='comment'> {this.props.content}</p>
+      <span className='comment'> {this.props.content} </span>
     )
   }
 }
