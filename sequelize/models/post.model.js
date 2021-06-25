@@ -75,8 +75,7 @@ Post.sync().then(()=>{
     timePosted: "2020-01-01T00:01:01.000Z",
     caption: "howdy y'all"}
   ).then(()=>{
-    console.log('created a post')
-    console.log(firstPost)
+    console.log('created a post: ', firstPost)
   })
 
 })
