@@ -58,3 +58,15 @@ Post.init({
 
 // check if it worked
 console.log(Post === sequelize.models.Post); // true
+
+Post.sync().then(()=>{
+  const firstPost = Post.create({
+    owner: 'Allie',
+    timePosted: "2020-01-01T00:01:01.000Z",
+    caption: "hello world"}
+  ).then(()=>{
+    console.log('created firstPost')
+    console.log(firstPost)
+  })
+
+})
