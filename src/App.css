@@ -146,7 +146,16 @@
   padding-left: 1%;
 }
 
+/*---------bestia button-------------*/
+.logout_img{
+  max-width: 35px;
+}
 
+.logout_btn{
+  border: 1px solid white;
+  background-color: white;
+  margin-left: 255px
+}
 /* --------------spinny logo------------------------------ */
 
 @media (prefers-reduced-motion: no-preference) {

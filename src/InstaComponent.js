@@ -49,7 +49,9 @@ export default class InstaComponent extends Component {
             <div id='header-bar-left-buffer'></div>
             <div id='header-bar'>
               <img src='./outstagramme.png' className="App-logo" alt="logo" />
-              <button onClick={this.handleLogoutClick}>logout</button>
+              <button onClick={this.handleLogoutClick} className="logout_btn">
+                <img src="./icon_door.png" className="logout_img" />
+              </button>
             </div>
           </header>
 
