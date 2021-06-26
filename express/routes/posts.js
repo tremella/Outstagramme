@@ -18,9 +18,22 @@ const Post = sequelize.define('Post',{
 
 // ------- ^ I need to require those all in better ------//
 
-async function showMePosts(){
+async function getAll(){
   const posts = await Post.findAll();
-  posts.forEach(post => console.log(post.dataValues))
+  return posts;
 }
 
-showMePosts()
+async function getById(idNum) {
+  const post = await Post.findByPk(id);
+  if (post) {
+    console.log('found it!', post)
+  } else {
+    console.log('nope')
+  }
+
+}
+
+module.exports = {
+	getAll,
+	getById,
+};
