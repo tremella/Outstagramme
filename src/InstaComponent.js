@@ -36,11 +36,6 @@ export default class InstaComponent extends Component {
 
     } else {
 
-      let post = <PostComponent
-      caption="I'm a caption"
-      photo=<PhotoComponent source='default.png' />
-      comments=<CommentComponent content="I'm a comment"/>
-      />
       return (
 
         <div className="App">
@@ -55,9 +50,7 @@ export default class InstaComponent extends Component {
             </div>
           </header>
 
-          <FeedComponent
-          allPosts={[post, post]}
-          />
+          <FeedComponent/>
 
           <footer className="App-footer">
               <a className="App-link"
