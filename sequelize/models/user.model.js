@@ -7,23 +7,29 @@ const sequelize = new Sequelize('postgresql://localhost:5432/insta-react');
 const User = sequelize.define('User',{
   firstName :{
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    len: [2,16]
   },
   lastName :{
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    len: [2,16]
   },
   handle :{
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    unique: true,
+    len: [2,12]
   },
   email :{
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    unique: true
   },
   password :{
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    len: [8,20]
   }
 });
 
@@ -70,11 +76,11 @@ function dummyUser() {
 
 User.sync().then(()=>{
   const firstUser = User.create({
-    firstName : 'Bill',
-    lastName : 'Boggis',
-    handle : 'Boggo',
-    email : 'bb@gmail.com',
-    password : "blogblog"
+    firstName : 'Jen',
+    lastName : 'Jones',
+    handle : 'JenJo',
+    email : 'jj@gmail.com',
+    password : "jortsjorts"
   }).then(()=>{
     console.log('made a user:', firstUser)
   })
