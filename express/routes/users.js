@@ -1,28 +1,6 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const sequelize = new Sequelize('postgresql://localhost:5432/insta-react')
-const User = sequelize.define('User',{
-  firstName :{
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  lastName :{
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  handle :{
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  email :{
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  password :{
-    type: DataTypes.STRING,
-    allowNull: false
-  }
-});
-
+const User = require ('../../sequelize/models/user.model.js')
 
 // ------- ^ I need to require those all in better ------//
 
@@ -41,7 +19,23 @@ async function getById(idNum) {
   }
 }
 
+async function verifyUserLogin(email, password) {
+
+  if (email === undefined || password === undefined) {
+    return false;
+  }
+  console.log(email, password, 'HERE')
+  const user = await User.findOne({ where: { email: email } });
+  if (user) {
+    if (user.password === password) {return true} else { return false}
+  } else {
+    console.log('BUZZ OFF')
+    return false;
+  }
+}
+
 module.exports = {
 	getAll,
 	getById,
+  verifyUserLogin,
 };

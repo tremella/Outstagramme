@@ -1,20 +1,7 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const sequelize = new Sequelize('postgresql://localhost:5432/insta-react')
-const Post = sequelize.define('Post',{
-  owner : {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  timePosted : {
-    type: DataTypes.DATE,
-    allowNull: false
-  },
-  caption : {
-    type: DataTypes.STRING,
-    allowNull: false
-  }
-  // uncertain how to handle photo.
-});
+const Post = require ('../../sequelize/models/post.model.js')
+
 
 // ------- ^ I need to require those all in better ------//
 
