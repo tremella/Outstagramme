@@ -23,14 +23,13 @@ async function getAll(){
   return posts;
 }
 
-async function getById(idNum) {
+async function getById(id) {
   const post = await Post.findByPk(id);
   if (post) {
-    console.log('found it!', post)
+    return post
   } else {
-    console.log('nope')
+    console.log('POST NOT FOUND')
   }
-
 }
 
 module.exports = {

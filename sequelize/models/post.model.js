@@ -73,8 +73,8 @@ Post.sync().then(()=>{
   const firstPost = Post.create({
     owner: 'Jen',
     timePosted: "2020-01-01T00:01:01.000Z",
-    caption: "howdy y'all"}
-  ).then(()=>{
+    caption: "howdy y'all"
+  }).then(()=>{
     console.log('created a post: ', firstPost)
   })
 

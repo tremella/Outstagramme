@@ -14,19 +14,18 @@ export default class FeedComponent extends Component {
   async getAllPosts(){
     let response = await fetch(POSTS_ENDPOINT);
     let data = await response.json();
-    console.log(data, 'DATA')
     this.setState({posts : data.posts})
   }
-
+  // once REACT components are loaded, FETCH from port 8000
   componentDidMount() {
     this.getAllPosts();
   }
   render() {
     let allPosts = []
-
+    // "if getAllPosts worked..."
     if (this.state.posts !== null){
-      console.log(this.state.posts)
       this.state.posts.forEach((post) => {
+        // make a component for it.
         allPosts.push(<PostComponent
         key={post.id}
         owner={post.owner}

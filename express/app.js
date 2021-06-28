@@ -18,9 +18,10 @@ http.listen(PORT, ()=> {
   console.log(`listening on port ${PORT}`)
 })
 
-// this object will contain ALL our routes
+// this will contain our routes from the express/routes folder.
 const routes = {
 	posts: require('./routes/posts'),
+  users: require('./routes/users')
 	// instruments: require('./routes/instruments'),
 };
 
@@ -30,9 +31,34 @@ const routes = {
 
 // app.get is given a path, and a function detailing
 // what we want it to do with the request it sends + the response it gets.
+
+// open http://localhost:8000/posts to see them
 app.get('/posts',(req, res)=>{
   routes.posts.getAll()
   .then((posts)=> {
     res.json({posts: posts})
+  });
+})
+
+app.get('/posts/1',(req, res)=>{
+  routes.posts.getById(1)
+  .then((posts)=> {
+    res.json({posts: posts})
+  });
+})
+
+// open http://localhost:8000/users to see them
+app.get('/users',(req, res)=>{
+  routes.users.getAll()
+  .then((users)=> {
+    res.json({users: users})
+  });
+})
+
+// open http://localhost:8000/users/5 to see it
+app.get('/users/5',(req, res)=>{
+  routes.users.getById(5)
+  .then((users)=> {
+    res.json({users: users})
   });
 })
