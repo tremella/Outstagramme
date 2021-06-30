@@ -59,17 +59,12 @@ app.get('/users/:id',(req, res)=>{
 })
 
 app.post('/login',(req,res)=>{
-  const email = req.body.email
-  const password = req.body.password
-  console.log(routes.users.verifyUserLogin(email,password))
-  routes.users.verifyUserLogin(email,password)
+
+  routes.users.verifyUserLogin(req.body.email,req.body.password)
   .then((loginValid) => {
     if (loginValid === true ) {
-      console.log(loginValid, '< should be TRUE')
-      sessionKey = getSessionKey()
-      res.json({sessionKey: sessionKey})
+      res.json({sessionKey: getSessionKey()})
     } else {
-      console.log(loginValid, '<should be FALSE')
       res.json({message: 'incorrect login values'})
     }
   })

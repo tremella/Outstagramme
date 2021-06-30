@@ -44,7 +44,7 @@ export default class InstaComponent extends Component {
 
     fetch('http://localhost:8000/login', options )
       .then( response => response.json() )
-      .then( response => { console.log(response, '<< RESPONSE')
+      .then( response => { console.log(response)
         if (response.sessionKey){
         // if (response.sessionKey !== null && response.sessionKey !== undefined){
           this.setState({loggedIn: true})
