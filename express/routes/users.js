@@ -24,18 +24,15 @@ async function verifyUserLogin(email, password) {
     console.log('email/password undefined')
     return false;
   }
-  // *** ///
+
   const user = await User.findOne({ where: { email: email } })
   // the AWAIT makes user resolve before continuing.
   if (user === null) {
-    console.log('nonexistent user')
     return false;
   }
   if (user.dataValues.password === password) {
-    console.log('correct email/password combo')
     return true;
   } else {
-    console.log('wrong password/email combo')
     return false
   }
 }
