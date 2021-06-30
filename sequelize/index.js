@@ -35,7 +35,4 @@ initializeDb().then(()=>{
     })
   })
 
-
-
-
 })

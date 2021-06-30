@@ -1,6 +1,6 @@
 
 
-export default function loginPage(handleLoginSubmit){
+export default function loginPage(handleLoginSubmit,handleEmailChange,handlePasswordChange){
   return (
     <div className="App">
       <div className="signup">
@@ -16,13 +16,11 @@ export default function loginPage(handleLoginSubmit){
       <div className="login">
         <h3> this should be visible BEFORE login</h3>
         <form onSubmit={handleLoginSubmit} >
-        <input type='text' id='email' placeholder='email address'></input> <br />
-        <input type='text' id='password' placeholder='password'></input> <br />
+        <input type='text' id='email' placeholder='email address' onChange={handleEmailChange}></input> <br />
+        <input type='text' id='password' placeholder='password' onChange={handlePasswordChange}></input> <br />
         <input type='submit' value='log in!'></input>
         </form>
       </div>
-
     </div>
   )
-
 }

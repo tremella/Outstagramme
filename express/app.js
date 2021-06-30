@@ -57,16 +57,19 @@ app.get('/users/:id',(req, res)=>{
     res.json({users: users})
   });
 })
-app.get('/login',(req,res)=>{
+
+app.post('/login',(req,res)=>{
+
+  // req.body is currently EMPTY - how did that happen?
   const email = req.body.email
   const password = req.body.password
-  console.log(email, password)
+
   if (routes.users.verifyUserLogin(email,password) === true) {
     sessionKey = getSessionKey()
     // need to add sessionkey to db
     res.json({sessionKey: sessionKey})
   } else {
-    res.json({message: 'login failed'})
+    res.json({message: 'no login for you! HERE 3'})
   }
 
 })
