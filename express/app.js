@@ -59,17 +59,26 @@ app.get('/users/:id',(req, res)=>{
 })
 
 app.post('/login',(req,res)=>{
-
-  // req.body is currently EMPTY - how did that happen?
   const email = req.body.email
   const password = req.body.password
-
+  console.log(routes.users.verifyUserLogin(email,password))
+  routes.users.verifyUserLogin(email,password)
+  .then((loginValid) => {
+    if (loginValid === true ) { console.log(loginValid, '< should be TRUE')
+    } else {
+      console.log(loginValid, '<should be FALSE')
+    }
+  })
   if (routes.users.verifyUserLogin(email,password) === true) {
+    console.log('correct credentials.')
     sessionKey = getSessionKey()
+    console.log('made session key')
     // need to add sessionkey to db
     res.json({sessionKey: sessionKey})
+  } else if (routes.users.verifyUserLogin(email,password) === false) {
+    res.json({message: 'wrong credentials. no login 4 u!!'})
   } else {
-    res.json({message: 'no login for you! HERE 3'})
+    res.json({message: 'you called this too early'})
   }
 
 })

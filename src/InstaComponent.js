@@ -42,20 +42,12 @@ export default class InstaComponent extends Component {
 
     };
 
-    fetch( 'http://localhost:8000/login', options )
+    fetch('http://localhost:8000/login', options )
       .then( response => response.json() )
       .then( response => {
         console.log(response, '<< RESPONSE')
       } )
 
-  //   fetch('http://localhost:8000/login', {
-  //     method: 'post',
-  //     headers: {'Content-Type': 'application/json'},
-  //     body: JSON.stringify({
-  //       "email" : this.state.email,
-  //       "password" : this.state.password
-  //     }),
-  // })
     this.setState({loggedIn: true})
   }
 

@@ -21,33 +21,23 @@ async function getById(idNum) {
 
 async function verifyUserLogin(email, password) {
   if (email === undefined || password === undefined) {
-    console.log('EMAIL AND PASSWORD PARAMS ARE UNDEFINED')
+    console.log('email/password undefined')
     return false;
   }
+  // *** ///
   const user = await User.findOne({ where: { email: email } })
-  .then(response => {
-    console.log('findOne implemented')
-    if (response === null) {
-      console.log('nonexistent user')
-      return false;
-    }
-    console.log(response.dataValues.password)
-    if (response.dataValues.password === password) {
-      console.log('correct email/password combo')
-      return true;
-    } else {
-      console.log('WRONG password/email combo')
-      return false
-    }
-  })
-  // console.log(user)
-  // if (user) {
-  //   console.log('USER EXISTS: CHECKING PW')
-  //   if (user.password === password) {return true} else { return false}
-  // } else {
-  //   console.log('THIS USER DOES NOT EXIST')
-  //   return false;
-  // }
+  // the AWAIT makes user resolve before continuing.
+  if (user === null) {
+    console.log('nonexistent user')
+    return false;
+  }
+  if (user.dataValues.password === password) {
+    console.log('correct email/password combo')
+    return true;
+  } else {
+    console.log('wrong password/email combo')
+    return false
+  }
 }
 
 module.exports = {
