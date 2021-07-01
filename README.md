@@ -1,6 +1,6 @@
 # Outstagramme
 
-WIP: the goal is to imitate Instagram's web app as closely as possible. 
+The goal is to imitate Instagram's web app as closely as possible - from scratch, without relying on tutorials. This is an exercise with getting comfortable with React. 
 
 ## Preview
 
