@@ -1,6 +1,6 @@
 # Outstagramme
 
-The goal is to imitate Instagram's web app as closely as possible - from scratch, without relying on tutorials. This is an exercise with getting comfortable with React. 
+The goal is to imitate Instagram's web app as closely as possible - from scratch, without relying on tutorials. This is an exercise in getting comfortable with React, the rest of the PERN stack, and styling. 
 
 ## Preview
 
