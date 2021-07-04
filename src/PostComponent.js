@@ -9,7 +9,7 @@ export default class PostComponent extends Component {
           <div>
             <img src='./icon.png' className="post-header-icon" alt=""/>
           </div>
-          <div className= "post-header-name"> {this.props.owner} </div>
+          <div className= "post-header-name"> Jill Schmill </div>
         </div>
         <div className="post-photo">{this.props.photo}</div>
         <div className="post-react-bar">

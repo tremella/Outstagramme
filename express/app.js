@@ -2,21 +2,39 @@
 const express = require('express');
 const session = require('express-session');
 const crypto = require('crypto')
+const pg = require('pg')
+
 // creates an Express application.
 const app = express();
 
 // creates a HTTP server object on our computer -
 const http = require('http').createServer(app);
 const cors = require('cors'); // disables cors
-
-function getSessionKey(){
-  var buffer = crypto.randomBytes(24);
-  return buffer.toString('hex');
-}
+const pgSession = require('connect-pg-simple')(session);
+const pgPool = new pg.Pool({
+  user: 'jessicabrand',
+  host: 'localhost',
+  database: 'insta-react',
+  port: 5432,
+});
 
 app.use(cors());
 app.use(express.json()); // "everything on the server is returned as a JSON"
 const PORT = 8000
+
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  store: new pgSession({
+    pool: pgPool
+  }),
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  // cookie: { secure: true }
+  cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 } // 30 days
+
+}))
+
 
 // we make the http server listen on port 8000
 http.listen(PORT, ()=> {
@@ -30,6 +48,10 @@ const routes = {
 	// instruments: require('./routes/instruments'),
 };
 
+function getSessionKey(){
+  var buffer = crypto.randomBytes(24);
+  return buffer.toString('hex');
+}
 
 // ENDPOINTS
 // open http://localhost:8000/posts to see the first one.
@@ -57,13 +79,15 @@ app.get('/users/:id',(req, res)=>{
     res.json({users: users})
   });
 })
-
 app.post('/login',(req,res)=>{
 
   routes.users.verifyUserLogin(req.body.email,req.body.password)
   .then((loginValid) => {
     if (loginValid === true ) {
-      res.json({sessionKey: getSessionKey()})
+      req.session.loggedIn = true //?
+      res.json({
+        sessionKey: getSessionKey(), 
+        session: req.session})
     } else {
       res.json({message: 'incorrect login values'})
     }

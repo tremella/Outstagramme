@@ -18,7 +18,7 @@ export default function loginPage(handleLoginSubmit,handleEmailChange,handlePass
         <form onSubmit={handleLoginSubmit} >
         <input type='text' id='email' placeholder='email address' onChange={handleEmailChange}></input> <br />
         <input type='text' id='password' placeholder='password' onChange={handlePasswordChange}></input> <br />
-        <input type='submit' value='log in!'></input>
+        <input type='submit' value='Log In'></input>
         </form>
       </div>
     </div>
