@@ -17,7 +17,7 @@ export default class LoginPageComponent extends Component {
     const email = this.state.email;
     const password = this.state.password;
     ev.preventDefault();
-    fetch('http://localhost:8000/login').
+    fetch('/login').
     then(response => response.json())
     .then(json => console.log(json))
     // handle verification here??

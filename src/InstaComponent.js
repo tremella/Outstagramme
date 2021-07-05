@@ -34,10 +34,11 @@ export default class InstaComponent extends Component {
     const options = {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify( params )
+      body: JSON.stringify( params ),
+      credentials: 'include'
     };
 
-    fetch('http://localhost:8000/login', options )
+    fetch('/login', options )
       .then( response => response.json() )
       .then( response => { console.log(response)
         if (response.session){
@@ -49,7 +50,21 @@ export default class InstaComponent extends Component {
 
 
   handleLogoutClick(ev) {
-    this.setState({loggedIn: false})
+    ev.preventDefault();
+
+    const options = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      credentials: 'include'
+    };
+
+    fetch('/logout', options )
+      .then( response => response.json() )
+      .then( response => { console.log(response, 'HERE HERE')
+      this.setState({loggedIn: false})
+      }
+    )
+    console.log('here here here')
   }
 
   render(){

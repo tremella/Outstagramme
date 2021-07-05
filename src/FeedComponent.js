@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PostComponent from './PostComponent';
 import CommentComponent from './CommentComponent';
 import PhotoComponent from './PhotoComponent';
-const SERVER = 'http://localhost:8000';
+const SERVER = '';
 const POSTS_ENDPOINT = SERVER + '/posts';
 
 export default class FeedComponent extends Component {
@@ -12,7 +12,7 @@ export default class FeedComponent extends Component {
 // this connects the backend server to our frontend -
 // the backend server will make its own queries
   async getAllPosts(){
-    let response = await fetch(POSTS_ENDPOINT);
+    let response = await fetch(POSTS_ENDPOINT, {credentials: 'include'});
     let data = await response.json();
     this.setState({posts : data.posts})
   }

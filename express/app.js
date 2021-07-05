@@ -36,8 +36,7 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
-  cookie: { maxAge: 30 * 24 * 60 * 60 * 1000,
-    secure: true } // 30 days
+  cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 } // 30 days
 }))
 
 
@@ -57,10 +56,19 @@ const routes = {
 // ENDPOINTS
 // open http://localhost:8000/posts to see the first one.
 app.get('/posts',(req, res)=>{
-  routes.posts.getAll()
-  .then((posts)=> {
-    res.json({posts: posts})
-  });
+  console.log(req.session)
+  if (req.session.loggedIn) {
+    routes.posts.getAll()
+    .then((posts)=> {
+      res.json({posts: posts})
+    });
+  } else {
+    res.sendStatus(401)
+  }
+  // routes.posts.getAll()
+  // .then((posts)=> {
+  //   res.json({posts: posts})
+  // });
 })
 app.get('/posts/:id',(req, res)=>{
   routes.posts.getById(req.params.id)
@@ -89,8 +97,14 @@ app.post('/login',(req,res)=>{
       res.json({
         session: req.session})
     } else {
-      res.json({message: 'incorrect login values'})
+      res.sendStatus(401)
     }
   })
 
+})
+app.post('/logout',(req,res)=>{
+  if (req.session){
+    req.session.destroy((err)=>{})
+    res.json({message : 'successful logout'})
+  }
 })
