@@ -1,7 +1,6 @@
+const { connection_string } = require('../../config');
 const { Sequelize, DataTypes, Model } = require('sequelize');
-
-// the arg is the connection URI
-const sequelize = new Sequelize('postgresql://localhost:5432/insta-react')
+const sequelize = new Sequelize(connection_string);
 
 //this tests the connection
 async function tryConnect(){
@@ -17,6 +16,8 @@ async function tryConnect(){
   console.log('*** closed connection! ***')
 
 }
+
+// tryConnect()
 
 //-------- Post --------- //
 
@@ -34,31 +35,30 @@ const Post = sequelize.define('Post',{
   // uncertain how to handle photo.
 });
 
-// test that it can be made
-function dummyPost() {
-  Post.init({
-    timePosted : {
-      type: DataTypes.DATE,
-      allowNull: false
-    },
-    caption : {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
-    // uncertain how to handle photo.
-  }, {
-    sequelize,
-    modelName: 'Post'
-  });
+// // test that it can be made
+// function dummyPost() {
+//   Post.init({
+//     timePosted : {
+//       type: DataTypes.DATE,
+//       allowNull: false
+//     },
+//     caption : {
+//       type: DataTypes.STRING,
+//       allowNull: false
+//     }
+//     // uncertain how to handle photo.
+//   }, {
+//     sequelize,
+//     modelName: 'Post'
+//   });
 
-  // check if it worked
-  console.log(Post === sequelize.models.Post); // true
+//   // check if it worked
+//   console.log(Post === sequelize.models.Post); // true
 
-}
+// }
 
 //--- create a real post, add to table ----- //
 
 // .sync creates the table if it doesn't exist
-
 
 module.exports = Post;

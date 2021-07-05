@@ -1,5 +1,3 @@
-const { Sequelize, DataTypes, Model } = require('sequelize');
-const sequelize = new Sequelize('postgresql://localhost:5432/insta-react')
 const User = require ('../../sequelize/models/user.model.js')
 
 // ------- ^ I need to require those all in better ------//

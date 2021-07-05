@@ -1,12 +1,7 @@
 import React, {Component} from 'react'
-// import logo from './logo.svg';
 import './App.css';
-import PostComponent from './PostComponent'
-import CommentComponent from './CommentComponent'
-import PhotoComponent from './PhotoComponent'
 import FeedComponent from './FeedComponent'
 import loginPage from './loginPage'
-
 
 export default class InstaComponent extends Component {
 
@@ -35,18 +30,17 @@ export default class InstaComponent extends Component {
       email: this.state.email,
       password: this.state.password
     };
+
     const options = {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify( params )
-
     };
 
     fetch('http://localhost:8000/login', options )
       .then( response => response.json() )
       .then( response => { console.log(response)
-        if (response.sessionKey){
-        // if (response.sessionKey !== null && response.sessionKey !== undefined){
+        if (response.session){
           this.setState({loggedIn: true})
         }
       }

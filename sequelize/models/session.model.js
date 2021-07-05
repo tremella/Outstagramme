@@ -1,5 +1,6 @@
-const { Sequelize, DataTypes, Model } = require('sequelize')
-const sequelize = new Sequelize('postgresql://localhost:5432/insta-react')
+const { connection_string } = require('../../config');
+const { Sequelize, DataTypes, Model } = require('sequelize');
+const sequelize = new Sequelize(connection_string);
 
 const Session = sequelize.define('Session',{
   sessionKey :{

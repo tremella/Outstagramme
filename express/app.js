@@ -1,8 +1,11 @@
 // this file sets up the server and responds to requests
 const express = require('express');
 const session = require('express-session');
-const crypto = require('crypto')
 const pg = require('pg')
+const { database_password, express_port } = require('../config');
+const dotenv = require('dotenv');
+dotenv.config();
+
 
 // creates an Express application.
 const app = express();
@@ -10,17 +13,20 @@ const app = express();
 // creates a HTTP server object on our computer -
 const http = require('http').createServer(app);
 const cors = require('cors'); // disables cors
+
+// creates connection pool: a 'cache' which is a more sustainable way to maintain a connection to the database
 const pgSession = require('connect-pg-simple')(session);
 const pgPool = new pg.Pool({
-  user: 'jessicabrand',
+  user: 'postgres',
   host: 'localhost',
   database: 'insta-react',
+  password: database_password,
   port: 5432,
 });
 
 app.use(cors());
 app.use(express.json()); // "everything on the server is returned as a JSON"
-const PORT = 8000
+
 
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
@@ -30,15 +36,14 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
-  // cookie: { secure: true }
-  cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 } // 30 days
-
+  cookie: { maxAge: 30 * 24 * 60 * 60 * 1000,
+    secure: true } // 30 days
 }))
 
 
 // we make the http server listen on port 8000
-http.listen(PORT, ()=> {
-  console.log(`listening on port ${PORT}`)
+http.listen(express_port, ()=> {
+  console.log(`listening on port ${express_port}`)
 })
 
 // this will contain our routes from the express/routes folder.
@@ -48,10 +53,6 @@ const routes = {
 	// instruments: require('./routes/instruments'),
 };
 
-function getSessionKey(){
-  var buffer = crypto.randomBytes(24);
-  return buffer.toString('hex');
-}
 
 // ENDPOINTS
 // open http://localhost:8000/posts to see the first one.
@@ -86,7 +87,6 @@ app.post('/login',(req,res)=>{
     if (loginValid === true ) {
       req.session.loggedIn = true //?
       res.json({
-        sessionKey: getSessionKey(), 
         session: req.session})
     } else {
       res.json({message: 'incorrect login values'})
