@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import './App.css';
 import FeedComponent from './FeedComponent'
+import LoginPageComponent from './loginPageComponent'
 import loginPage from './loginPage'
 
 export default class InstaComponent extends Component {
@@ -10,67 +11,23 @@ export default class InstaComponent extends Component {
     this.state = {
       loggedIn: false,
     }
-    this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
-    this.handleLogoutClick = this.handleLogoutClick.bind(this)
-
-    this.handleEmailChange = this.handleEmailChange.bind(this)
-    this.handlePasswordChange = this.handlePasswordChange.bind(this)
-  }
-  handleEmailChange(ev) {
-     this.setState({email: ev.target.value});
-  }
-  handlePasswordChange(ev) {
-     this.setState({password: ev.target.value});
   }
 
-  handleLoginSubmit(ev) {
-    ev.preventDefault();
-
-    const params = {
-      email: this.state.email,
-      password: this.state.password
-    };
-
-    const options = {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify( params ),
-      credentials: 'include'
-    };
-
-    fetch('/login', options )
-      .then( response => response.json() )
-      .then( response => { console.log(response)
-        if (response.session){
-          this.setState({loggedIn: true})
-        }
-      }
-    )
-  }
-
-
-  handleLogoutClick(ev) {
-    ev.preventDefault();
-
-    const options = {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      credentials: 'include'
-    };
-
-    fetch('/logout', options )
-      .then( response => response.json() )
-      .then( response => { console.log(response, 'HERE HERE')
-      this.setState({loggedIn: false})
-      }
-    )
-    console.log('here here here')
-  }
 
   render(){
 
     if (this.state.loggedIn === false) {
-      return loginPage(this.handleLoginSubmit, this.handleEmailChange, this.handlePasswordChange)
+      // render loginComponent, give it a link to signup page.
+      return (
+        <div>
+          <LoginPageComponent setLoginState={(logged_in)=>{this.setState({loggedIn: logged_in})}}/>
+          <div className="login">
+            <div className="login-signup-option">
+              <p className="link-to-signup">Don't have an account? <a class='signup-a' href="/signup">Sign up</a></p>
+            </div>
+          </div>
+        </div>
+      )
     } else {
 
       return (

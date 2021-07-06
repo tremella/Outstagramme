@@ -3,56 +3,99 @@ import React, {Component} from 'react'
 export default class LoginPageComponent extends Component {
 
   constructor(props){
-    super(props)
+    super(props);
+    this.state = {
+      email: null,
+      password: null
+    }
+    this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
+    this.handleLogoutClick = this.handleLogoutClick.bind(this)
+    this.handleEmailChange = this.handleEmailChange.bind(this)
+    this.handlePasswordChange = this.handlePasswordChange.bind(this)
   }
-
+  
   handleEmailChange(ev) {
-     this.setState({email: ev.target.value});
-  }
-  handlePasswordChange(ev) {
-     this.setState({password: ev.target.value});
-  }
+    this.setState({email: ev.target.value});
+ }
+ handlePasswordChange(ev) {
+    this.setState({password: ev.target.value});
+ }
 
-  handleLoginSubmit(ev) {
-    const email = this.state.email;
-    const password = this.state.password;
-    ev.preventDefault();
-    fetch('/login').
-    then(response => response.json())
-    .then(json => console.log(json))
-    // handle verification here??
-    // fetch req: user & password
-    // if yes: populate this.sessionKey
-    this.setState({loggedIn: true})
-  }
+ handleLoginSubmit(ev) {
+   ev.preventDefault();
 
+   const params = {
+     email: this.state.email,
+     password: this.state.password
+   };
 
-  handleLogoutClick(ev) {
-    this.setState({loggedIn: false})
-  }
+   const options = {
+     method: 'POST',
+     headers: {'Content-Type': 'application/json'},
+     body: JSON.stringify( params ),
+     credentials: 'include'
+   };
+
+   fetch('/login', options )
+     .then( response => response.json() )
+     .then( response => { console.log(response)
+       if (response.session){
+         //
+         this.props.setLoginState(true)
+       }
+     }
+   )
+ }
+
+ handleLogoutClick(ev) {
+   ev.preventDefault();
+
+   const options = {
+     method: 'POST',
+     headers: {'Content-Type': 'application/json'},
+     credentials: 'include'
+   };
+
+   fetch('/logout', options )
+     .then( response => response.json() )
+     .then( response => { console.log(response, 'HERE HERE')
+     this.props.setLoginState(false)
+     }
+   )
+   console.log('here here here')
+ }
 
   render(){
     return (
       <div className="App">
-        <div className="signup">
-          <h3> am I being used?</h3>
-          <form>
-            <input type='text' id='first_name' placeholder='first name'></input> <br />
-            <input type='text' id='email' placeholder='email address'></input> <br />
-            <input type='text' id='password' placeholder='password'></input> <br />
-            <input type='submit' value='sign up!'></input>
-          </form>
-        </div>
+      <div className="signup">
+        <br /><br />
+        <form>
+          {/* <form onSubmit=@{handleSignupSubmit}> */}
+          <input type='text' id='email' className='form-input' placeholder='Email'></input> <br />
+          <input type='text' id='full_name' className='form-input' placeholder='Full Name'></input> <br />
+          <input type='text' id='username' className='form-input' placeholder='Username'></input> <br />
+          <input type='text' id='password' className='form-input' placeholder='Password'></input> <br />
+          <input type='submit' className='form-button' value='Sign up'></input>
+        </form>
+        <br /><br />
+      </div>
 
-        <div className="login">
-          <h3> this should be visible BEFORE login</h3>
-          <form onSubmit={handleLoginSubmit} >
-          <input type='text' id='email' placeholder='email address' onChange={handleEmailChange}></input> <br />
-          <input type='text' id='password' placeholder='password' onChange={handlePasswordChange}></input> <br />
-          <input type='submit' value='log in!'></input>
+      <div className="login">
+        {/* <div className="login-slideshow">
+          <img src='./phone_login_frame.png' className="login-slideshow-img" alt="slideshow" />
+        </div> */}
+        <div className="login-inner">
+          <img src='./outstagramme-login.png' className="App-logo-login" alt="logo" />
+          <form onSubmit={this.handleLoginSubmit} >
+          <input type='text' id='email' className='form-input' placeholder='Email' onChange={this.handleEmailChange}></input> <br />
+          <input type='text' id='password' className='form-input' placeholder='Password' onChange={this.handlePasswordChange}></input> <br />
+          <input type='submit' className='form-button' value='Log In'></input>
           </form>
+          {/* <p className="link-to-signup">Don't have an account? <a class='signup-a' href="/signup">Sign up</a></p> */}
         </div>
       </div>
+    </div>
     )
   }
 }

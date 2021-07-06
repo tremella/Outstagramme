@@ -6,6 +6,7 @@ export default function loginPage(handleLoginSubmit,handleEmailChange,handlePass
       <div className="signup">
         <br /><br />
         <form>
+          {/* <form onSubmit=@{handleSignupSubmit}> */}
           <input type='text' id='email' className='form-input' placeholder='Email'></input> <br />
           <input type='text' id='full_name' className='form-input' placeholder='Full Name'></input> <br />
           <input type='text' id='username' className='form-input' placeholder='Username'></input> <br />
@@ -26,6 +27,7 @@ export default function loginPage(handleLoginSubmit,handleEmailChange,handlePass
           <input type='text' id='password' className='form-input' placeholder='Password' onChange={handlePasswordChange}></input> <br />
           <input type='submit' className='form-button' value='Log In'></input>
           </form>
+          <p className="link-to-signup">Don't have an account? <a class='signup-a' href="/signup">Sign up</a></p>
         </div>
       </div>
     </div>
