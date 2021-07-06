@@ -8,6 +8,7 @@
   margin-top: 2%;
 }
 
+
 .App-header {
   background-color: white;
   border-top: 1px solid rgb(211, 211, 211);
@@ -48,16 +49,82 @@
   color: #9adafa;
 }
 
+/*---------LOGIN-------------*/
+.login{
+  margin-top: 10px;
+  height: 720px;
+  background-color: #fafafa;
+  /* place-items: center; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.login-slideshow{
+  margin-right: 20px;
+}
+
+.login-slideshow-img{
+  height: 600px;
+  margin-top: 40px;
+  background-color: #fafafa;
+}
+
+.login-inner{
+  margin-top: 50px;
+  margin-left: 5px;
+  background-color: #ffffff;
+  border: 1px solid rgb(221, 221, 221);
+  width: 350px;
+  height: 380px;
+  border-radius: 1%;
+}
+
+.App-logo-login {
+  max-width: 220px;
+  pointer-events: none;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.login-input{
+  padding: 10px;
+  margin: 4px;
+  width: 260px;
+  font-size: 10px;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 3%;
+  background-color:#fafafa;
+  color: grey;
+}
+
+.login-button{
+  margin: 10px;
+  padding: 9px;
+  width: 282px;
+  background-color: rgb(156, 216, 255);
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 10px
+}
+
+.login-button:hover{
+  background-color:  rgb(17, 168, 255);
+}
 
 .signup{
   min-height: 5vh;
   background-color: #0077b6;
 }
 
-.login{
-  min-height: 5vh;
-  background-color: #00b4d8;
+::placeholder {
+  color: rgb(139, 139, 139);
+  opacity: 1;
 }
+
+/* ------ FEED */
 
 .feed{
   min-height: 5vh;
@@ -146,9 +213,6 @@
   text-align: left;
   padding-left: 1%;
 }
-/*---------login page form -------------*/
-
-.input{}
 
 /*---------logout button-------------*/
 .logout_img{

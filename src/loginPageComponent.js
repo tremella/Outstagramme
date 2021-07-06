@@ -35,7 +35,7 @@ export default class LoginPageComponent extends Component {
     return (
       <div className="App">
         <div className="signup">
-          <h3> this should be visible BEFORE signup OR login</h3>
+          <h3> am I being used?</h3>
           <form>
             <input type='text' id='first_name' placeholder='first name'></input> <br />
             <input type='text' id='email' placeholder='email address'></input> <br />
