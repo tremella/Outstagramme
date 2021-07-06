@@ -4,7 +4,8 @@ The goal is to imitate Instagram's web app as closely as possible - from scratch
 
 ## Preview
 
-![image](https://user-images.githubusercontent.com/63588842/124107799-800bc200-da5d-11eb-818d-88a7906bd3b9.png)
+![image](https://github.com/tremella/Outstagramme/blob/main/public/preview.PNG)
+https://github.com/tremella/Outstagramme/blob/main/public/preview.PNG
 
 ## Technologies used
 
