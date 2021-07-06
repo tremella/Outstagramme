@@ -87,30 +87,30 @@
   margin-bottom: 5%;
 }
 
-.login-input{
+.form-input{
   padding: 10px;
   margin: 4px;
   width: 260px;
   font-size: 10px;
   border: 1px solid rgb(221, 221, 221);
-  border-radius: 3%;
+  border-radius: 4px;
   background-color:#fafafa;
   color: grey;
 }
 
-.login-button{
+.form-button{
   margin: 10px;
   padding: 9px;
   width: 282px;
   background-color: rgb(156, 216, 255);
-  border: 1px solid white;
+  border: 0px solid;
   border-radius: 5px;
   color: white;
   font-weight: bold;
   font-size: 10px
 }
 
-.login-button:hover{
+.form-button:hover{
   background-color:  rgb(17, 168, 255);
 }
 

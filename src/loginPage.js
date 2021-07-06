@@ -3,26 +3,28 @@
 export default function loginPage(handleLoginSubmit,handleEmailChange,handlePasswordChange){
   return (
     <div className="App">
-      {/* <div className="signup">
-        <h3> this should be visible BEFORE signup OR login</h3>
+      <div className="signup">
+        <br /><br />
         <form>
-          <input type='text' id='first_name' placeholder='first name'></input> <br />
-          <input type='text' id='email' placeholder='email address'></input> <br />
-          <input type='text' id='password' placeholder='password'></input> <br />
-          <input type='submit' value='sign up!'></input>
+          <input type='text' id='email' className='form-input' placeholder='Email'></input> <br />
+          <input type='text' id='full_name' className='form-input' placeholder='Full Name'></input> <br />
+          <input type='text' id='username' className='form-input' placeholder='Username'></input> <br />
+          <input type='text' id='password' className='form-input' placeholder='Password'></input> <br />
+          <input type='submit' className='form-button' value='Sign up'></input>
         </form>
-      </div> */}
+        <br /><br />
+      </div>
 
       <div className="login">
-        <div className="login-slideshow">
+        {/* <div className="login-slideshow">
           <img src='./phone_login_frame.png' className="login-slideshow-img" alt="slideshow" />
-        </div>
+        </div> */}
         <div className="login-inner">
           <img src='./outstagramme-login.png' className="App-logo-login" alt="logo" />
           <form onSubmit={handleLoginSubmit} >
-          <input type='text' id='email' className='login-input' placeholder='Email' onChange={handleEmailChange}></input> <br />
-          <input type='text' id='password' className='login-input' placeholder='Password' onChange={handlePasswordChange}></input> <br />
-          <input type='submit' className='login-button' value='Log In'></input>
+          <input type='text' id='email' className='form-input' placeholder='Email' onChange={handleEmailChange}></input> <br />
+          <input type='text' id='password' className='form-input' placeholder='Password' onChange={handlePasswordChange}></input> <br />
+          <input type='submit' className='form-button' value='Log In'></input>
           </form>
         </div>
       </div>
