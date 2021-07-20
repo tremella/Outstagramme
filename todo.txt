@@ -1,0 +1,35 @@
+TODO:
+^ high priority
+v low priority
+
+Signup method not fully operational:
+    need a FETCH(POST) for a /signup endpoint,
+    also need a post /signup method in express/app.js
+    and a verifyNewUser function in express/routes/users.js
+    also have to decide: should they be logged in automatically?
+        immediate term: no. Just redirect to login page.
+        long term: YES, inclusive of email auth.
+
+login and signup passwords need to be hashed.
+
+create a post function
+    this is outside bounds of insta's web app.
+    could imitate phone setup.
+        click [+] button, interface of gallery comes up. 
+        Select one, then proceed [->]
+            ++ filter/edit, [->]
+        write a caption, [✓]
+            ++ tag people
+            ++ add location
+
+post interactions
+    the components exist, but the functionality doesn't [yet]
+
+messaging
+    this will need a model
+        list of previous convos [left] on same page as
+        loaded convo [right]
+
+activity
+    this will need a model (?)
+    it's a pop-up, not a page.

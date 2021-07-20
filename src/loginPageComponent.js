@@ -13,7 +13,7 @@ export default class LoginPageComponent extends Component {
     this.handleEmailChange = this.handleEmailChange.bind(this)
     this.handlePasswordChange = this.handlePasswordChange.bind(this)
   }
-  
+
   handleEmailChange(ev) {
     this.setState({email: ev.target.value});
  }
@@ -69,9 +69,9 @@ export default class LoginPageComponent extends Component {
     return (
       <div className="App">
       <div className="login">
-        {/* <div className="login-slideshow">
+        <div className="login-slideshow">
           <img src='./phone_login_frame.png' className="login-slideshow-img" alt="slideshow" />
-        </div> */}
+        </div>
         <div className="login-inner">
           <img src='./outstagramme-login.png' className="App-logo-login" alt="logo" />
           <form onSubmit={this.handleLoginSubmit} >
