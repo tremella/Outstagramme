@@ -47,11 +47,12 @@ export default class SignupPageComponent extends Component {
             body: JSON.stringify( params ),
             credentials: 'include'
         }
-        console.log(this.state, 'HERE is the state')
+        console.log('STATE', this.state)
 
         fetch('/signup', options )
         .then( response => response.json() ) // turn resp into json
-        .then( response => console.log(response) ) // log it
+        .then( response => {console.log(response)} ) // log it
+        
     }
 
     render(){
