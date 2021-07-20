@@ -16,7 +16,7 @@ export default class LoginPageComponent extends Component {
 
   handleEmailChange(ev) {
     this.setState({email: ev.target.value});
- }
+  }
  handlePasswordChange(ev) {
     this.setState({password: ev.target.value});
  }
@@ -47,8 +47,11 @@ export default class LoginPageComponent extends Component {
    )
  }
 
+ // now I think about it, a login component doesn't need a logout function
+ // because it only exists for logging IN.
  handleLogoutClick(ev) {
    ev.preventDefault();
+   console.log('1) clicked logout')
 
    const options = {
      method: 'POST',
@@ -58,11 +61,11 @@ export default class LoginPageComponent extends Component {
 
    fetch('/logout', options )
      .then( response => response.json() )
-     .then( response => { console.log(response, 'HERE HERE')
+     .then( response => { console.log(response, '2) fetch /logout response')
      this.props.setLoginState(false)
      }
    )
-   console.log('here here here')
+   console.log('3) loginState is now false')
  }
 
   render(){

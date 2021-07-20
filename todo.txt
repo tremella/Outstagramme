@@ -2,6 +2,8 @@ TODO:
 ^ high priority
 v low priority
 
+login method stopped working!
+
 Signup method not fully operational:
     need a FETCH(POST) for a /signup endpoint,
     also need a post /signup method in express/app.js
