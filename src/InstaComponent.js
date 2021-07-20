@@ -13,7 +13,7 @@ export default class InstaComponent extends Component {
       loggedIn: false,
       signingUp: false
     }
-    this.toggleSignup = this.toggleSignup.bind(this);
+    this.toggleSigningUp = this.toggleSigningUp.bind(this);
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
   }
 
@@ -36,7 +36,7 @@ export default class InstaComponent extends Component {
     console.log('loginState is now false')
   }
 
-  toggleSignup(ev){
+  toggleSigningUp(ev){
     ev.preventDefault()
     console.log(ev)
     if (this.state.signingUp === false) {
@@ -99,7 +99,7 @@ export default class InstaComponent extends Component {
           <div className="login-signup-option">
             <p className="link-to-signup">
               Don't have an account? 
-            <button className='signup-a' onClick={this.toggleSignup}> Sign up</button></p>
+            <button className='signup-a' onClick={this.toggleSigningUp}> Sign up</button></p>
           </div>
         </div>
       </div>

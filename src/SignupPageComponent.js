@@ -1,6 +1,29 @@
 import React, {Component} from 'react'
-
 export default class SignupPageComponent extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            // these need to be populated for signup request
+            email: null,
+            fullname: null,
+            username: null,
+            password: null
+        }
+        this.handleSignupSubmit = this.handleSignupSubmit.bind(this)
+    }
+
+    // for when the signup button is clicked
+    handleSignupSubmit(ev){
+        ev.preventDefault();
+
+        const params = {}
+        const options = {}
+
+        fetch('/signup', options)
+        .then() // turn resp into json
+        .then() // log it
+    }
+
     render(){
         return(
             <div className="signup">

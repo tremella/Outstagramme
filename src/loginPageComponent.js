@@ -16,35 +16,36 @@ export default class LoginPageComponent extends Component {
   handleEmailChange(ev) {
     this.setState({email: ev.target.value});
   }
- handlePasswordChange(ev) {
-    this.setState({password: ev.target.value});
+  handlePasswordChange(ev) {
+      this.setState({password: ev.target.value});
+  }
+
+  handleLoginSubmit(ev) {
+    ev.preventDefault();
+
+    const params = {
+      email: this.state.email,
+      password: this.state.password
+    };
+
+    const options = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify( params ),
+      credentials: 'include'
+    };
+
+    fetch('/login', options )
+      .then( response => response.json() )
+      .then( response => { console.log(response)
+        if (response.session){
+          //
+          this.props.setLoginState(true)
+        }
+      }
+    )
  }
 
- handleLoginSubmit(ev) {
-   ev.preventDefault();
-
-   const params = {
-     email: this.state.email,
-     password: this.state.password
-   };
-
-   const options = {
-     method: 'POST',
-     headers: {'Content-Type': 'application/json'},
-     body: JSON.stringify( params ),
-     credentials: 'include'
-   };
-
-   fetch('/login', options )
-     .then( response => response.json() )
-     .then( response => { console.log(response)
-       if (response.session){
-         //
-         this.props.setLoginState(true)
-       }
-     }
-   )
- }
 
   render(){
     return (

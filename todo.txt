@@ -2,7 +2,7 @@ TODO:
 ^ high priority
 v low priority
 
-login method stopped working!
+[FIXED] login method stopped working!
 
 Signup method not fully operational:
     need a FETCH(POST) for a /signup endpoint,
