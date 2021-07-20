@@ -14,14 +14,12 @@ export default class InstaComponent extends Component {
       signingUp: false
     }
     this.toggleSignup = this.toggleSignup.bind(this);
-    // this.sayHi = this.sayHi.bind(this)
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
   }
 
 
   handleLogoutClick(ev) {
     ev.preventDefault();
-    console.log('1) clicked logout')
  
     const options = {
       method: 'POST',
@@ -31,11 +29,11 @@ export default class InstaComponent extends Component {
  
     fetch('/logout', options )
       .then( response => response.json() )
-      .then( response => { console.log(response, '2) fetch /logout response')
+      .then( response => { console.log(response, 'fetched /logout response')
       this.setState({loggedIn: false})
       }
     )
-    console.log('3) loginState is now false')
+    console.log('loginState is now false')
   }
 
   toggleSignup(ev){
@@ -50,9 +48,6 @@ export default class InstaComponent extends Component {
     }
   }
 
-  sayHi(){
-    console.log('hi!!')
-  }
 
   render(){
 
