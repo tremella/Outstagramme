@@ -3,37 +3,66 @@ export default class SignupPageComponent extends Component {
     constructor(props){
         super(props);
         this.state = {
-            // these need to be populated for signup request
+            // these need to become populated for signup request
             email: null,
             fullname: null,
             username: null,
             password: null
         }
         this.handleSignupSubmit = this.handleSignupSubmit.bind(this)
+        this.handleEmailChange = this.handleEmailChange.bind(this);
+        this.handleFullnameChange = this.handleFullnameChange.bind(this);
+        this.handleUsernameChange = this.handleUsernameChange.bind(this);
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    }
+
+    // this helps trigger state update
+    handleEmailChange(ev){
+        this.setState({email: ev.target.value});
+    }
+    handleFullnameChange(ev){
+        this.setState({fullname: ev.target.value});
+    }
+    handleUsernameChange(ev){
+        this.setState({username: ev.target.value});
+    }
+    handlePasswordChange(ev){
+        this.setState({password: ev.target.value});
     }
 
     // for when the signup button is clicked
     handleSignupSubmit(ev){
         ev.preventDefault();
 
-        const params = {}
-        const options = {}
+        console.log('INSIDE handleSignupSubmit!')
+        const params = {
+            email: this.state.email,
+            fullname: this.state.fullname,
+            username: this.state.username,
+            password: this.state.password
+        }
+        const options = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify( params ),
+            credentials: 'include'
+        }
+        console.log(this.state, 'HERE is the state')
 
-        fetch('/signup', options)
-        .then() // turn resp into json
-        .then() // log it
+        fetch('/signup', options )
+        .then( response => response.json() ) // turn resp into json
+        .then( response => console.log(response) ) // log it
     }
 
     render(){
         return(
             <div className="signup">
                 <br /><br />
-                <form>
-                {/* <form onSubmit=@{handleSignupSubmit}> */}
-                <input type='text' id='email' className='form-input' placeholder='Email'></input> <br />
-                <input type='text' id='full_name' className='form-input' placeholder='Full Name'></input> <br />
-                <input type='text' id='username' className='form-input' placeholder='Username'></input> <br />
-                <input type='text' id='password' className='form-input' placeholder='Password'></input> <br />
+                <form onSubmit={this.handleSignupSubmit}>
+                <input type='text' id='email' className='form-input' placeholder='Email' onChange={this.handleEmailChange}></input> <br />
+                <input type='text' id='full_name' className='form-input' placeholder='Full Name' onChange={this.handleFullnameChange}></input> <br />
+                <input type='text' id='username' className='form-input' placeholder='Username' onChange={this.handleUsernameChange}></input> <br />
+                <input type='text' id='password' className='form-input' placeholder='Password' onChange={this.handlePasswordChange}></input> <br />
                 <input type='submit' className='form-button' value='Sign up'></input>
                 </form>
                 <br /><br />

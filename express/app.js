@@ -108,3 +108,7 @@ app.post('/logout',(req,res)=>{
     res.json({message : 'successful logout'})
   }
 })
+
+app.post('/signup',(req,res)=>{
+  console.log('inside the signup endpoint')
+})

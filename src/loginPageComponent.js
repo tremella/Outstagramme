@@ -12,7 +12,7 @@ export default class LoginPageComponent extends Component {
     this.handleEmailChange = this.handleEmailChange.bind(this)
     this.handlePasswordChange = this.handlePasswordChange.bind(this)
   }
-
+  // this helps trigger state update
   handleEmailChange(ev) {
     this.setState({email: ev.target.value});
   }
