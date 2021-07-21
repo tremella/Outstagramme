@@ -44,6 +44,10 @@ export default class LoginPageComponent extends Component {
         }
       }
     )
+    .catch((error) => {
+      console.log(error, 'error case!!!!')
+      alert('login failed!')
+    } )
  }
 
 
