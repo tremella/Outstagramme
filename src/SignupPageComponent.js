@@ -35,6 +35,8 @@ export default class SignupPageComponent extends Component {
         ev.preventDefault();
 
         console.log('INSIDE handleSignupSubmit!')
+        // these are probably more relevant to post-signup
+        // login than auth, but I'm not sure.
         const params = {
             email: this.state.email,
             fullname: this.state.fullname,

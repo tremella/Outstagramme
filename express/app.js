@@ -89,7 +89,6 @@ app.get('/users/:id',(req, res)=>{
   });
 })
 app.post('/login',(req,res)=>{
-
   routes.users.verifyUserLogin(req.body.email,req.body.password)
   .then((loginValid) => {
     if (loginValid === true ) {
@@ -111,4 +110,11 @@ app.post('/logout',(req,res)=>{
 
 app.post('/signup',(req,res)=>{
   console.log('inside the signup endpoint')
+  // make a function similar to verifyUserLogin, in routes/users
+  // it should check this user doesn't exist
+  // it should validate the input choices
+  // it should create the user
+  // SUCCESS IF: user created
+  // [later] ALSO IF: an invalid user is not created
+  // ALSO make another function: a redirect to the login page
 })

@@ -17,12 +17,8 @@ async function getById(idNum) {
   }
 }
 
-async function verifyUserLogin(email, password) {
-  if (email === undefined || password === undefined) {
-    console.log('email/password undefined')
-    return false;
-  }
-
+async function userExists(email,password){
+  console.log('in userExists')
   const user = await User.findOne({ where: { email: email } })
   // the AWAIT makes user resolve before continuing.
   if (user === null) {
@@ -35,8 +31,25 @@ async function verifyUserLogin(email, password) {
   }
 }
 
+function preventUndefinedField(field1, field2){
+  if (field1 === undefined || field2 === undefined) {
+    console.log(`${field1}/${field2} IS UNDEFINED!`)
+    return false
+  }
+}
+
+// async function makeNewUser(){}
+
+async function verifyUserLogin(email, password) {
+  preventUndefinedField(email, password)
+  const user = await userExists(email, password)
+  return user
+}
+
 module.exports = {
 	getAll,
 	getById,
   verifyUserLogin,
+  userExists,
+  preventUndefinedField,
 };
