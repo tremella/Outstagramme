@@ -15,9 +15,8 @@ async function initializeDb(){
 
 initializeDb().then(()=>{
   const firstUser = User.create({
-    firstName : 'Jen',
-    lastName : 'Jones',
-    handle : 'JenJo',
+    fullName : 'Jen Jones',
+    userName : 'JenJo',
     email : 'jj@gmail.com',
     password : "jortsjorts"
   }).then(()=>{
