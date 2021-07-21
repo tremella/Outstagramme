@@ -43,7 +43,15 @@ function preventUndefinedField(arr){
 }
 
 async function makeNewUser(email, fullname, username, password){
-
+  preventUndefinedField([email, fullname, username, password])
+  const doesUserExist = await userExists(email, password)
+  if (doesUserExist === false) {
+    console.log('this is a new user!')
+  } else {
+    console.log('this is an EXISTING user!')
+    return false
+  }
+  // if no, make the new user
 }
 
 async function verifyUserLogin(email, password) {
@@ -58,4 +66,5 @@ module.exports = {
   verifyUserLogin,
   userExists,
   preventUndefinedField,
+  makeNewUser,
 };

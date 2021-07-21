@@ -109,6 +109,7 @@ app.post('/logout',(req,res)=>{
 })
 
 app.post('/signup',(req,res)=>{
+  routes.users.makeNewUser(req.body.email,req.body.fullname,req.body.username, req.body.password)
   console.log('inside the signup endpoint')
   // make a function similar to verifyUserLogin, in routes/users
   // it should check this user doesn't exist
