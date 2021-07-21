@@ -109,11 +109,21 @@ app.post('/logout',(req,res)=>{
 })
 
 app.post('/signup',(req,res)=>{
-  routes.users.makeNewUser(req.body.email,req.body.fullname,req.body.username, req.body.password)
-  console.log('inside the signup endpoint')
-  // make a function similar to verifyUserLogin, in routes/users
-  // it should check this user doesn't exist
-  // it should validate the input choices
+  // ensures user does not exist already
+  routes.users.verifyNewUser(req.body.email,req.body.fullname,req.body.username, req.body.password)
+  .then((doesUserExistAlready) => {
+    if (doesUserExistAlready === false ) {
+      console.log('new user HERE')
+      routes.users.createNewUser(req.body.email,req.body.fullname,req.body.username, req.body.password)
+      .then(()=>{
+        console.log('2) back in /signup')
+      })
+    } else {
+      console.log('old user HERE')
+    }
+
+  })
+
   // it should create the user
   // SUCCESS IF: user created
   // [later] ALSO IF: an invalid user is not created

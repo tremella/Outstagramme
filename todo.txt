@@ -7,8 +7,10 @@ v low priority
 Signup method not fully operational:
     [DONE] need a FETCH(POST) for a /signup endpoint,
     [IN PROGRESS] also need a post /signup method in express/app.js
-    and a verifyNewUser function in express/routes/users.js
+    [DONE ]and a verifyNewUser function in express/routes/users.js
+    and it has to make a new user.
         [DONE] and the model needs to be updated to imitate the signup form
+        and I need to make all the fields unique at signup
     also have to decide: should they be logged in automatically?
         immediate term: no. Just redirect to login page.
         long term: YES, inclusive of email auth.
