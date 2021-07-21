@@ -38,7 +38,7 @@ function preventUndefinedField(field1, field2){
   }
 }
 
-// async function makeNewUser(){}
+async function makeNewUser(email, fullname, username, password){}
 
 async function verifyUserLogin(email, password) {
   preventUndefinedField(email, password)

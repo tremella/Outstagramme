@@ -5,17 +5,12 @@ const sequelize = new Sequelize(connection_string);
 // defining what a User should look like
 
 const User = sequelize.define('User',{
-  firstName :{
+  fullName :{
     type: DataTypes.STRING,
     allowNull: false,
-    len: [2,16]
+    len: [3,32]
   },
-  lastName :{
-    type: DataTypes.STRING,
-    allowNull: false,
-    len: [2,16]
-  },
-  handle :{
+  userName :{
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
