@@ -77,7 +77,7 @@ export default class InstaComponent extends Component {
       // render loginComponent, give it a link to signup page.
     }
     if (this.state.signingUp === true) {
-      // how do I toggle signing up once a successful submit's passed?
+      // Note: the component has a function as a prop allowing me to alter the signingUp state.
       return(
         <div>
           <SignupPageComponent setSignupState={(signing_up)=>{this.setState({signingUp: signing_up})}} />
