@@ -51,8 +51,11 @@ export default class SignupPageComponent extends Component {
         .then( response => {
             if (response.status === 201) {
                 alert(`signup successful`)
+                // this is the magic line which calls the function which is a prop
+                // it triggers the state change in the parent component
                 this.props.setSignupState(false)
-                // redirect?
+                // just a reminder to self about how props can be passed in from the parent
+                console.log(this.props.apple)
             } else {
                 alert(`signup failed: status ${response.status}`)
             }

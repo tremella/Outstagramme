@@ -39,7 +39,8 @@ export default class LoginPageComponent extends Component {
       .then( response => response.json() )
       .then( response => { console.log(response)
         if (response.session){
-          // this is the magic where state is passed bak up
+          // this is the magic line which calls the function which is a prop
+          // it triggers the state change in the parent component
           this.props.setLoginState(true)
         }
       }

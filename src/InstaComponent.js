@@ -80,7 +80,7 @@ export default class InstaComponent extends Component {
       // Note: the component has a function as a prop allowing me to alter the signingUp state.
       return(
         <div>
-          <SignupPageComponent setSignupState={(signing_up)=>{this.setState({signingUp: signing_up})}} />
+          <SignupPageComponent apple='apple' setSignupState={(signing_up)=>{this.setState({signingUp: signing_up})}} />
           <div className="login">
           <div className="login-signup-option">
             <p className="link-to-signup">
