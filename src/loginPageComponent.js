@@ -39,7 +39,7 @@ export default class LoginPageComponent extends Component {
       .then( response => response.json() )
       .then( response => { console.log(response)
         if (response.session){
-          //
+          // this is the magic where state is passed bak up
           this.props.setLoginState(true)
         }
       }
@@ -65,7 +65,6 @@ export default class LoginPageComponent extends Component {
           <input type='text' id='password' className='form-input' placeholder='Password' onChange={this.handlePasswordChange}></input> <br />
           <input type='submit' className='form-button' value='Log In'></input>
           </form>
-          {/* <p className="link-to-signup">Don't have an account? <a class='signup-a' href="/signup">Sign up</a></p> */}
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ export default class SignupPageComponent extends Component {
             email: null,
             fullname: null,
             username: null,
-            password: null
+            password: null,
         }
         this.handleSignupSubmit = this.handleSignupSubmit.bind(this)
         this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -33,10 +33,6 @@ export default class SignupPageComponent extends Component {
     // for when the signup button is clicked
     handleSignupSubmit(ev){
         ev.preventDefault();
-
-        console.log('INSIDE handleSignupSubmit!')
-        // these are probably more relevant to post-signup
-        // login than auth, but I'm not sure.
         const params = {
             email: this.state.email,
             fullname: this.state.fullname,
@@ -52,9 +48,16 @@ export default class SignupPageComponent extends Component {
         console.log('STATE', this.state)
 
         fetch('/signup', options )
-        .then( response => response.json() ) // turn resp into json
-        .then( response => {console.log(response)} ) // log it
-        
+        .then( response => {
+            if (response.status === 201) {
+                alert(`signup successful`)
+                this.props.setSignupState(false)
+                // redirect?
+            } else {
+                alert(`signup failed: status ${response.status}`)
+            }
+        })
+
     }
 
     render(){

@@ -49,15 +49,15 @@ async function verifyNewUser(email, fullname, username, password){
 }
 
 async function createNewUser(email, fullname, username, password){
-  User.create({
+  const user = await User.create({
     fullName : fullname,
     userName : username,
     email : email,
     password : password
   })
-  .then(()=>{
-    console.log('1) in createnewuser')
-  })
+  // TODO: error handling for if it didn't create
+  // this doesn't return anything. Should probably return bool
+  return true // or false if fails
 }
 
 async function verifyUserLogin(email, password) {

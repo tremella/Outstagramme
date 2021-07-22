@@ -110,22 +110,19 @@ app.post('/logout',(req,res)=>{
 
 app.post('/signup',(req,res)=>{
   // ensures user does not exist already
-  routes.users.verifyNewUser(req.body.email,req.body.fullname,req.body.username, req.body.password)
+  var r = req.body
+  routes.users.verifyNewUser(r.email,r.fullname,r.username, r.password)
   .then((doesUserExistAlready) => {
     if (doesUserExistAlready === false ) {
-      console.log('new user HERE')
-      routes.users.createNewUser(req.body.email,req.body.fullname,req.body.username, req.body.password)
+      routes.users.createNewUser(r.email,r.fullname,r.username, r.password)
       .then(()=>{
-        console.log('2) back in /signup')
+        res.sendStatus(201)
       })
     } else {
-      console.log('old user HERE')
+      res.sendStatus(500)
     }
 
   })
 
-  // it should create the user
-  // SUCCESS IF: user created
-  // [later] ALSO IF: an invalid user is not created
   // ALSO make another function: a redirect to the login page
 })

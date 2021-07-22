@@ -17,7 +17,6 @@ export default class InstaComponent extends Component {
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
   }
 
-
   handleLogoutClick(ev) {
     ev.preventDefault();
  
@@ -47,7 +46,6 @@ export default class InstaComponent extends Component {
       console.log('your signup state is broken lol')
     }
   }
-
 
   render(){
 
@@ -79,14 +77,15 @@ export default class InstaComponent extends Component {
       // render loginComponent, give it a link to signup page.
     }
     if (this.state.signingUp === true) {
+      // how do I toggle signing up once a successful submit's passed?
       return(
         <div>
-          <SignupPageComponent/>
+          <SignupPageComponent setSignupState={(signing_up)=>{this.setState({signingUp: signing_up})}} />
           <div className="login">
           <div className="login-signup-option">
             <p className="link-to-signup">
               Have an account? 
-            <button className='signup-a' onClick={this.toggleSignup}> Log in</button></p>
+            <button className='signup-a' onClick={this.toggleSigningUp}> Log in</button></p>
           </div>
         </div>
         </div>
